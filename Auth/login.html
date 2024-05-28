@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Page</title>
+    <link rel="stylesheet" href="/Auth/login.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <h1 id="form-title">Login</h1>
+        </div>
+        <img
+          src="/asset/images/MAVS_logo.jpg"
+          alt="Login/Signup Image"
+          class="header-image"
+        />
+        <form id="auth-form">
+          <div class="form-group">
+            <label for="userType">User Type</label>
+            <select id="userType">
+              <option value="student">student</option>
+              <option value="donor">donor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required />
+          </div>
+          <button type="submit" id="submit-btn">Login</button>
+          <button type="button" id="toggle-btn">Create an account</button>
+          <button type="button" id="google-btn" class="google_login">
+            Sign In with Google
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Include Firebase Config Script -->
+    <script type="module" src="/Auth/firebase-config.js"></script>
+
+    <!-- Authentication Script -->
+    <script type="module">
+      import { auth, provider } from "/Auth/firebase-config.js";
+      import {
+        signInWithPopup,
+        GoogleAuthProvider,
+      } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("auth-form");
+        const toggleBtn = document.getElementById("toggle-btn");
+        const formTitle = document.getElementById("form-title");
+        const submitBtn = document.getElementById("submit-btn");
+        const googleBtn = document.getElementById("google-btn");
+        let isLogin = true;
+
+        toggleBtn.addEventListener("click", function () {
+          isLogin = !isLogin;
+          formTitle.textContent = isLogin ? "Login" : "Sign Up";
+          submitBtn.textContent = isLogin ? "Login" : "Sign Up";
+          toggleBtn.textContent = isLogin
+            ? "Create an account"
+            : "I already have an account";
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const userType = document.getElementById("userType").value;
+
+          if (isLogin) {
+            // Perform login operation
+            console.log("Login", { email, password, userType });
+          } else {
+            // Perform sign-up operation
+            console.log("Sign Up", { email, password, userType });
+          }
+        });
+
+        googleBtn.addEventListener("click", function () {
+          // Perform Google Sign-In operation
+          console.log("Sign In with Google");
+          signInWithPopup(auth, provider)
+            .then((result) => {
+              const credential =
+                GoogleAuthProvider.credentialFromResult(result);
+              const user = result.user;
+
+              // Redirect to student profile
+              window.location.href = "../view/student/studentProfile.html";
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.error(
+                "Error during Google Sign-In:",
+                errorCode,
+                errorMessage
+              );
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="/view/student/studentProfile.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="#" id="past-applications">Your Past Applications</a></li>
+          <li><a href="#" id="apply-new">Apply New</a></li>
+          <li><a href="#" id="finance-section">Finance Section</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </aside>
+      <main class="main-content">
+        <section id="content-area">
+          <h2>Welcome to your profile</h2>
+          <p>Select an option from the menu to get started.</p>
+        </section>
+         <!-- Circle Avatar -->
+        <div class="avatar-container">
+          <img id="avatar" src="/asset/images/profile.jpg" alt="Avatar" class="avatar" />
+        </div>
+      </main>
+    </div>
+    
+    <!-- Profile Dialog -->
+    <div id="profile-dialog" class="profile-dialog">
+      <div class="dialog-content">
+        <span id="close-dialog" class="close-dialog">&times;</span>
+        <img id="profile-photo" src="/asset/images/resume.jpeg" alt="Profile Photo" class="profile-photo" />
+        <h3 id="profile-name">User Name</h3>
+        <p id="profile-email">user@example.com</p>
+      </div>
+    </div>
+      </main>
+    </div>
+    <script type="module" src="/view/student/studentProfile.js" ></script>
+    <script type="module" src="/Auth/firebase-config.js"></script>
+  </body>
+</html>

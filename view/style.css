@@ -1,0 +1,101 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header {
+  background-color: #6200ea;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+p#program-description {
+  font-size: 1.2em;
+  margin: 10px 0 0;
+}
+
+.introduction,
+.beneficiaries {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #6200ea;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.introduction p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.beneficiaries .card-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  min-width: 200px;
+  height: 150px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 0 0 5px;
+  color: #333;
+  font-size: 1em;
+}
+
+.card p {
+  font-size: 0.9em;
+  line-height: 1.2;
+  color: #555;
+  margin: 0;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

@@ -4,13 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scholarship Program</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="/view/style.css" />
   </head>
   <body>
     <header>
-      <h1>Welcome to Our Scholarship Program</h1>
-      <p id="program-description">Loading...</p>
+      <div class="header-container">
+        <h1>Vidya Aadhar Financial Aid Scheme</h1>
+        <a href="/view/student/studentProfile.html"
+          ><button id="student">student</button></a
+        >
+        <a href="/view/donor/donorProfile.html"
+          ><button id="donor">donor</button></a
+        >
+        <a href="/Auth/login.html"><button id="login">login</button></a>
+
+        <p id="program-description">Empowering students through education</p>
+      </div>
     </header>
-    <script src="js/index.js" type="module"></script>
+
+    <section class="introduction">
+      <h2>About Us</h2>
+      <p>
+        Welcome to our Scholarship Program. Our mission is to provide financial
+        support to talented students in need, helping them achieve their
+        educational goals and build a brighter future.
+      </p>
+    </section>
+
+    <section class="beneficiaries">
+      <h2>Past Beneficiaries</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="/asset/images/student1.jpg" alt="Student 1" />
+          <h3>ABC</h3>
+          <p>
+            "This scholarship has changed my life. Thank you for your support!"
+          </p>
+        </div>
+        <div class="card">
+          <img src="/asset/images/student2.jpg" alt="Student 2" />
+          <h3>XYZ</h3>
+          <p>"I couldn't have achieved my dreams without this program."</p>
+        </div>
+        <div class="card">
+          <img src="/asset/images/student3.jpg" alt="Student 3" />
+          <h3>PQR</h3>
+          <p>
+            "A big thank you to everyone involved in the scholarship program."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Scholarship Program. All rights reserved.</p>
+    </footer>
+
+    <!-- Add Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+
+    <!-- Your custom script -->
+    <script type="module" src="/Auth/firebase-config.js"></script>
   </body>
 </html>
